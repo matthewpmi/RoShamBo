@@ -8,4 +8,37 @@
   <body>
    
   </body>
+
+  <script>
+
+    function computerPlay(){
+      const computerOptions = ["Rock","Paper","Scissors"]
+      const cInput = computerOptions[Math.floor(Math.random()*3)];
+      return cInput;
+    }
+   
+    //take player choice and computer (random) choice
+    //output winner
+
+    const computerSelection = computerPlay();
+    const playerSelection = "rock";
+
+    function playRound(computerSelection, playerSelection){
+      
+      playerSelection = playerSelection.toLowerCase();
+    
+      if (playerSelection === "rock" && computerSelection === "Scissors" || playerSelection === "scissors" && computerSelection === "Paper" || playerSelection === "paper" && computerSelection === "Rock") {
+        return "You win!";
+      }
+      else if (playerSelection === "rock" && computerSelection === "Paper" || playerSelection === "scissors" && computerSelection === "Rock" || playerSelection === "paper" && computerSelection === "Scissors") {
+        return "You Lose!";
+      }
+      else {
+        return "Draw!";
+      }
+      
+    }
+    
+    console.log(playRound(playerSelection,computerSelection));
+  </script>
 </html>
