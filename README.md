@@ -1,2 +1,2 @@
 # RoShamBo
-Rocks paper scissors
+Rock paper scissors
