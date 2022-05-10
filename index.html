@@ -45,26 +45,27 @@
     }
     
     function game(){
-      for (let i = 0; i < 5; i++){
+      for (let i = 0; ; i++){
         const computerSelection = computerPlay(); //computer choice
         const playerSelection = prompt("Type 'Rock', 'Paper', or 'Scissors'").toLowerCase();  //player choice
-        playRound(computerSelection, playerSelection); //run the game 5 times
         console.log(playRound(computerSelection, playerSelection));
         console.log(playerScore);
         console.log(compScore);
+        if (playerScore === 5){  
+          return "You win the match!";
       }
-        if (playerScore > compScore){  
-          return "You win the match!"
+        else if (compScore === 5){
+          return "You lose the match!";
         }
-        else if (compScore > playerScore){
-          return "You lose the match!"
-        }
-        else if (compScore == playerScore){
-          return "The match ends in a draw!"
-        }
-        else {
-          return "You broke the game!"
-        }
+      }
+
+
+        // else if (compScore == playerScore){
+        //   return "The match ends in a draw!"
+        // }
+        // else {
+        //   return "You broke the game!"
+        // }
     }
     //console.log(playRound(computerSelection, playerSelection));
     console.log(game())
