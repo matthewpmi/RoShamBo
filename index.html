@@ -32,7 +32,7 @@
       }
       else if (pSelection == "rock" && cSelection == "paper" || pSelection == "scissors" && cSelection == "rock" || pSelection == "paper" && cSelection == "scissors") { //comp win condition
         compScore++;
-        return `You win the round, ${cSelection} beats ${pSelection}!`;
+        return `You lose the round, ${cSelection} beats ${pSelection}!`;
       }
       else if (pSelection == "rock" && cSelection == "rock" || pSelection == "scissors" && cSelection == "scissors" || pSelection == "paper" && cSelection == "paper") { //draw condition
         return "It's a draw!";
@@ -40,6 +40,8 @@
       else {
         return "Give a proper response next time!"; //return on typo
       }
+      // console.log(playerScore);
+      // console.log(compScore);
     }
     
     function game(){
@@ -56,7 +58,7 @@
         }
         else if (compScore > playerScore){
           return "You lose the match!"
-        }  
+        }
         else if (compScore == playerScore){
           return "The match ends in a draw!"
         }
