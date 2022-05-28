@@ -3,73 +3,16 @@
   <head>
     <meta charset="UTF-8">
     <title>RoShamBo</title>
+    <link rel="stylesheet" href="styles.css">
+    <script src="script.js" defer></script>
   </head>
   <body>
-  </body>
-  <script>
-    //create random output from computer
-    function computerPlay() {
-      const randomItem = Math.floor(Math.random() * 3 + 1);
-        if (randomItem === 1) {
-          return 'rock';
-        } 
-        else if (randomItem === 2) {
-          return 'paper';
-        } 
-        else if (randomItem === 3) {
-          return 'scissors';
-        }
-      }
-    //take player choice and computer (random) choice
-    //output winner
-    let playerScore = 0; //player score count
-    let compScore = 0; //computer score count
-
-    function playRound(cSelection, pSelection) { 
-      if (pSelection == "rock" && cSelection == "scissors" || pSelection == "scissors" && cSelection == "paper" || pSelection == "paper" && cSelection == "rock") { //player win condition
-        playerScore++;
-        return `You win the round, ${pSelection} beats ${cSelection}!`;
-      }
-      else if (pSelection == "rock" && cSelection == "paper" || pSelection == "scissors" && cSelection == "rock" || pSelection == "paper" && cSelection == "scissors") { //comp win condition
-        compScore++;
-        return `You lose the round, ${cSelection} beats ${pSelection}!`;
-      }
-      else if (pSelection == "rock" && cSelection == "rock" || pSelection == "scissors" && cSelection == "scissors" || pSelection == "paper" && cSelection == "paper") { //draw condition
-        return "It's a draw!";
-      }
-      else {
-        return "Give a proper response next time!"; //return on typo
-      }
-      // console.log(playerScore);
-      // console.log(compScore);
-    }
-    
-    function game(){
-      for (let i = 0; ; i++){
-        const computerSelection = computerPlay(); //computer choice
-        const playerSelection = prompt("Type 'Rock', 'Paper', or 'Scissors'").toLowerCase();  //player choice
-        console.log(playRound(computerSelection, playerSelection));
-        console.log(playerScore);
-        console.log(compScore);
-        if (playerScore === 5){  
-          return "You win the match!";
-      }
-        else if (compScore === 5){
-          return "You lose the match!";
-        }
-      }
-
-
-        // else if (compScore == playerScore){
-        //   return "The match ends in a draw!"
-        // }
-        // else {
-        //   return "You broke the game!"
-        // }
-    }
-    //console.log(playRound(computerSelection, playerSelection));
-    console.log(game())
-    console.log(playerScore)
-    console.log(compScore)
-  </script>
+    <h1>Rock Paper Scissors</h1>
+    <div class="buttons">
+      <button id="rock" type="button">ROCK</button>
+      <button id="paper" type="button">PAPER</button>
+      <button id="scissors" type="button">SCISSORS</button>
+    </div>
+    <div id="scoreContainer"></div>
+  </body>    
 </html>
