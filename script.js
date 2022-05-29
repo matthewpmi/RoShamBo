@@ -21,22 +21,33 @@
       const rock = document.querySelector('#rock')
       const paper = document.querySelector('#paper')
       const scissors = document.querySelector('#scissors')
-      rock.addEventListener('click', () => console.log(playRound(computerPlay(), "rock")));
-      paper.addEventListener('click', () => console.log(playRound(computerPlay(), "paper")));
-      scissors.addEventListener('click', () => console.log(playRound(computerPlay(), "scissors")));
+      const pScore = document.querySelector('#playerScore')
+      const cScore = document.querySelector('#compScore')
+      const sBoard = document.querySelector('#scoreBoard')
+      rock.addEventListener('click', () => (playRound(computerPlay(), "rock")));
+      paper.addEventListener('click', () => (playRound(computerPlay(), "paper")));
+      scissors.addEventListener('click', () => (playRound(computerPlay(), "scissors")));
           
       
       function playRound(cSelection, pSelection) { 
         if (pSelection == "rock" && cSelection == "scissors" || pSelection == "scissors" && cSelection == "paper" || pSelection == "paper" && cSelection == "rock") { //player win condition
           playerScore++;
-          return `You win the round, ${pSelection} beats ${cSelection}! ` + playerScore + '-' + compScore + '!';
+          pScore.textContent = playerScore;
+          sBoard.textContent = `You win the round, ${pSelection} beats ${cSelection}!`;
+          if (playerScore === 5){  
+            sBoard.textContent = "You win the match!";
+          }
         }
         else if (pSelection == "rock" && cSelection == "paper" || pSelection == "scissors" && cSelection == "rock" || pSelection == "paper" && cSelection == "scissors") { //comp win condition
           compScore++;
-          return `You lose the round, ${cSelection} beats ${pSelection}! ` + playerScore + '-' + compScore + '!';
+          cScore.textContent = compScore;
+          sBoard.textContent = `You lose the round, ${cSelection} beats ${pSelection}!`;
+          if (compScore === 5){  
+            sBoard.textContent = "You lose the match!";
+          }
         }
         else if (pSelection == "rock" && cSelection == "rock" || pSelection == "scissors" && cSelection == "scissors" || pSelection == "paper" && cSelection == "paper") { //draw condition
-          return "It's a draw! " + playerScore + '-' + compScore + '!';
+          sBoard.textContent = `It's a draw! The computer also selected ${cSelection}!`;
         }
         else {
           return "Give a proper response next time!"; //return on typo

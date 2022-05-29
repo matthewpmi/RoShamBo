@@ -2,18 +2,31 @@ body {
     display: flex;
     align-content: center;
     flex-direction: column;
-    background-color: rgb(71, 71, 71);
+    /* background-color: rgb(71, 71, 71); */
 }
 h1 {
     margin:  24px auto;
+    margin-bottom: 16px;
     align-content: center;
 }
 .buttons {
-    margin: 24px auto;
+    margin: auto;
+    margin-bottom: 16px;
 }
 #scoreContainer {
-    border-style: solid;
+    /* border-style: solid; */
+    column-gap: 8px;
     display: flex;
     height: 24px;
     margin: auto;
+}
+#scoreContainer * {
+    /* border-style: solid; */
+    width: 24px;
+    height: 24px;
+    margin: auto;
+}
+#scoreBoard {
+    margin: auto;
+    margin-bottom: 16px;
 }
