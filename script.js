@@ -13,11 +13,22 @@
         }
       //take player choice and computer (random) choice
       //output winner
-          
+      function endGame() {
+        if (playerScore === 5) {
+          sBoard.textContent = "You win the match!";
+          playerScore.textContent = '0';
+          compScore.textContent = '0';
+        }
+        else if (compScore === 5) {
+          sBoard.textContent = "You lose the match!";
+          playerScore.textContent = '0';
+          compScore.textContent = '0';
+        }
+      }    
       let computerSelection = computerPlay(); //computer choice
       let playerScore = 0; //player score count
       let compScore = 0; //computer score count
-      
+      const btn = document.querySelectorAll('button')
       const rock = document.querySelector('#rock')
       const paper = document.querySelector('#paper')
       const scissors = document.querySelector('#scissors')
@@ -27,24 +38,29 @@
       rock.addEventListener('click', () => (playRound(computerPlay(), "rock")));
       paper.addEventListener('click', () => (playRound(computerPlay(), "paper")));
       scissors.addEventListener('click', () => (playRound(computerPlay(), "scissors")));
-          
-      
+       
       function playRound(cSelection, pSelection) { 
-        if (pSelection == "rock" && cSelection == "scissors" || pSelection == "scissors" && cSelection == "paper" || pSelection == "paper" && cSelection == "rock") { //player win condition
+        // if (playerScore === 5) {
+        //   sBoard.textContent = "You win the match!";
+        // }
+        // else if (compScore === 5) {
+        //   sBoard.textContent = "You lose the match!";
+        // }
+       if (pSelection == "rock" && cSelection == "scissors" || pSelection == "scissors" && cSelection == "paper" || pSelection == "paper" && cSelection == "rock") { //player win condition
           playerScore++;
           pScore.textContent = playerScore;
           sBoard.textContent = `You win the round, ${pSelection} beats ${cSelection}!`;
-          if (playerScore === 5){  
-            sBoard.textContent = "You win the match!";
-          }
+          // if (playerScore === 5){  
+          //   sBoard.textContent = "You win the match!";
+          // }
         }
         else if (pSelection == "rock" && cSelection == "paper" || pSelection == "scissors" && cSelection == "rock" || pSelection == "paper" && cSelection == "scissors") { //comp win condition
           compScore++;
           cScore.textContent = compScore;
           sBoard.textContent = `You lose the round, ${cSelection} beats ${pSelection}!`;
-          if (compScore === 5){  
-            sBoard.textContent = "You lose the match!";
-          }
+          // if (compScore === 5){  
+          //   sBoard.textContent = "You lose the match!";
+          // }
         }
         else if (pSelection == "rock" && cSelection == "rock" || pSelection == "scissors" && cSelection == "scissors" || pSelection == "paper" && cSelection == "paper") { //draw condition
           sBoard.textContent = `It's a draw! The computer also selected ${cSelection}!`;
@@ -54,6 +70,27 @@
         }
         // console.log(playerScore);
         // console.log(compScore);
+      }
+
+      function endGame() {
+        if (playerScore === 5) {
+          sBoard.textContent = "You win the match!";
+          pScore.textContent = '0';
+          cScore.textContent = '0';
+          playerScore = 0;
+          compScore = 0;
+        }
+        else if (compScore === 5) {
+          sBoard.textContent = "You lose the match!";
+          pScore.textContent = '0';
+          cScore.textContent = '0';
+          playerScore = 0;
+          compScore = 0;
+        }
+      }    
+
+      for ( let i=0; i<btn.length; i++){
+        btn[i].addEventListener('click', () => (endGame()));
       }
       
     //   function game(){
@@ -82,5 +119,5 @@
     
     //   console.log(playRound(computerSelection, playerSelection));
     //   console.log(game())
-    //   console.log(playerScore)
-    //   console.log(compScore)
+      // console.log(playerScore)
+      // console.log(compScore)
